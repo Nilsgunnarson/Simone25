@@ -1,13 +1,51 @@
-
-<!DOCTYPE HTML>
-<html><!-- InstanceBegin template="/Templates/Huvudmall.dwt" codeOutsideHTMLIsLocked="false" -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Access Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4);
+        }
+        .access-container {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .input-field {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ff80ab;
+        }
+    </style>
+</head>
+<body>
+    <div class="access-container">
+        <h2>Enter Access Code</h2>
+        <input type="password" id="access-code" class="input-field" placeholder="Enter code here">
+        <button class="button" onclick="checkCode()">Enter</button>
+        <p id="error-message" style="color: red; display: none;">Incorrect code. Please try again.</p>
+    </div>
 
-</div></div>
-<!-- InstanceEndEditable --><!-- InstanceBeginEditable name="Rightcol2" -->
-<div>Hello world, nu drar vi igång kodare</div>
-<!-- InstanceEndEditable -->
-</div>
+    <script>
+        function checkCode() {
+            const code = document.getElementById('access-code').value;
+            const correctCode = "birthday25";  // Set your access code here
+            if (code === correctCode) {
+                window.location.href = "birthday.html";  // Redirect to the birthday page
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+            }
+        }
+    </script>
 </body>
-<!-- InstanceEnd --></html>
+</html>
