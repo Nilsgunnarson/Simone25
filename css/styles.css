@@ -188,3 +188,56 @@ body::before {
     transform: translateX(-50%);
     animation-delay: calc(0.1s * var(--i));
 }
+/* Slideshow-Specific Styles */
+.slideshow-container {
+    width: 80%;
+    max-width: 800px; /* Adjust this value as needed for your design */
+    height: 450px; /* Fixed height for a 16:9 aspect ratio */
+    margin: 0 auto 20px; /* Center horizontally and add margin-bottom */
+    background-color: #fff; /* Optional: Add background color to the container */
+    border: 1px solid #ddd; /* Optional: Add border to the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow to the container */
+    overflow: hidden; /* Ensure content stays within the bounds */
+    position: relative; /* For positioning the image absolutely inside */
+}
+
+.slideshow-container img {
+    width: 100%; /* Ensures the image takes up the full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 100%; /* Ensure the image does not exceed the container's height */
+    object-fit: contain; /* Ensures the whole image fits within the container */
+}
+
+.slider-container {
+    width: 80%;
+    max-width: 800px; /* Adjust this value as needed for your design */
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.slider-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensure the wrapper takes full width */
+}
+
+#year-slider {
+    width: 100%;
+    margin: 10px 0;
+}
+
+#current-year {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Style for the year labels */
+#start-year, #end-year {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px;
+}
+
