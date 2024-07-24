@@ -3,7 +3,7 @@
     width: 80%;
     max-width: 800px; /* Adjust this value as needed for your design */
     height: 450px; /* Fixed height for a 16:9 aspect ratio */
-    margin-bottom: 20px;
+    margin: 0 auto 20px; /* Center horizontally and add margin-bottom */
     background-color: #fff; /* Optional: Add background color to the container */
     border: 1px solid #ddd; /* Optional: Add border to the container */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow to the container */
