@@ -22,10 +22,8 @@
         <h1>Happy 25th Birthday!</h1>
         <h2>Celebrating a wonderful milestone</h2>
         <p>Wishing you all the happiness in the world on your special day.</p>
-        <div class="balloon"></div>
-        <div class="balloon"></div>
-        <div class="balloon"></div>
-        <button class="button">Celebrate!</button>
+        <a href="rsvp.html" class="button">RSVP Here</a>
+        <a href="info.html" class="button">More Info</a>
     </div>
 
     <div class="confetti-container">
@@ -78,4 +76,14 @@
     </audio>
 
     <script>
-        //
+        // Ensure the audio plays on mobile devices and some browsers that block autoplay
+        document.addEventListener('DOMContentLoaded', function () {
+            var audio = document.getElementById('background-music');
+            audio.play().catch(error => {
+                console.log("Autoplay was prevented. Triggering play on user interaction.");
+                document.body.addEventListener('click', () => audio.play());
+            });
+        });
+    </script>
+</body>
+</html>
