@@ -22,7 +22,7 @@
     <div class="container">
         <h1>Happy 25th Birthday!</h1>
         <div class="slideshow-container">
-            <img id="slideshow-photo" src="photos/1999.JPG" alt="Photo from 1999">
+            <img id="slideshow-photo" src="Photos/1999.JPG" alt="Photo from 1999">
         </div>
         <div class="slider-container">
             <span id="start-year">1999</span>
@@ -105,7 +105,7 @@
             slider.addEventListener('input', function() {
                 const year = slider.value;
                 currentYear.textContent = year;
-                photo.src = `photos/${year}.JPG`;
+                photo.src = `Photos/${year}.JPG`;
                 photo.alt = `Photo from ${year}`;
             });
         });
