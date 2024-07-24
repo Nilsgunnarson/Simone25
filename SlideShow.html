@@ -12,8 +12,12 @@
         <img id="slideshow-photo" src="photos/1999.JPG" alt="Photo from 1999">
     </div>
     <div class="slider-container">
-        <input type="range" id="year-slider" min="1999" max="2024" value="1999">
-        <div id="current-year">1999</div>
+        <span id="start-year">1999</span>
+        <div class="slider-wrapper">
+            <input type="range" id="year-slider" min="1999" max="2024" value="1999">
+            <div id="current-year">1999</div>
+        </div>
+        <span id="end-year">2024</span>
     </div>
 
     <script>

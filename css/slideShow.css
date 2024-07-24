@@ -22,9 +22,16 @@
     width: 80%;
     max-width: 800px; /* Adjust this value as needed for your design */
     display: flex;
-    flex-direction: column;
     align-items: center;
     margin: 0 auto;
+    justify-content: space-between;
+}
+
+.slider-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensure the wrapper takes full width */
 }
 
 #year-slider {
@@ -35,4 +42,11 @@
 #current-year {
     font-size: 20px;
     font-weight: bold;
+}
+
+/* Style for the year labels */
+#start-year, #end-year {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px;
 }
