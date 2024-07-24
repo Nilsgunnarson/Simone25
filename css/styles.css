@@ -25,12 +25,14 @@ h2 {
     font-size: 2em;
     margin: 0.5em 0;
     color: #ff80ab;
+    animation: fadeIn 2s ease-in;
 }
 
 p {
     font-size: 1.2em;
     margin: 0.5em 0;
     color: #ff4081;
+    animation: slideIn 2s ease-in-out;
 }
 
 /* Container */
@@ -55,6 +57,7 @@ p {
     cursor: pointer;
     font-size: 1.2em;
     transition: background-color 0.3s ease;
+    animation: pulse 2s infinite;
 }
 
 .button:hover {
@@ -74,6 +77,36 @@ p {
     }
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .balloon {
     width: 50px;
     height: 70px;
@@ -82,7 +115,7 @@ p {
     position: relative;
     display: inline-block;
     margin: 20px 10px;
-    animation: float 4s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite, spin 6s linear infinite;
 }
 
 .balloon:before {
@@ -104,6 +137,15 @@ p {
     }
     100% {
         transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }
 
