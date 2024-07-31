@@ -272,7 +272,10 @@ body::before {
     }
 
     h1 {
-        font-size: 2em;
+        font-size: 3em;
+        margin: 0.5em 0;
+        color: #ff4081;
+        animation: bounce 1.5s infinite;
     }
 
     h2 {
