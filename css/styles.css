@@ -1,6 +1,9 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 /* General Styles */
 body {
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    font-family: 'Roboto', sans-serif;
     background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4);
     color: #333;
     text-align: center;
