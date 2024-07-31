@@ -10,9 +10,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4);
-            overflow: hidden;
+            margin: 0;
+            padding: 20px;
         }
         .rsvp-container {
             width: 100%;
@@ -23,14 +24,35 @@
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px 0;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #ff80ab;
+        }
     </style>
 </head>
 <body>
     <div class="rsvp-container">
         <h2>RSVP for the Birthday Party</h2>
         <!-- Embed the Google Form here -->
-        <iframe src="https://forms.gle/oTPt1L8TTk9bQLAr8" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-        <a href="birthday.html" class="button">Go back</a>
+        <iframe src="https://forms.gle/oTPt1L8TTk9bQLAr8" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <a href="birthday.html" class="button">Gå Tillbaka</a>
     </div>
 </body>
 </html>
