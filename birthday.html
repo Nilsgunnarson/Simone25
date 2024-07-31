@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy 25th Birthday!</title>
+   <!-- <link rel="stylesheet" href="css/slideShow.css"> -->
     <link rel="stylesheet" href="css/styles.css">
     <style>
         .confetti-container {
@@ -20,12 +21,23 @@
 <body>
     <div class="container">
         <h1>Happy 25th Birthday!</h1>
+        <div class="slideshow-container">
+            <img id="slideshow-photo" src="Photos/1999.JPG" alt="Photo from 1999">
+        </div>
+        <div class="slider-container">
+            <span id="start-year">1999</span>
+            <div class="slider-wrapper">
+                <input type="range" id="year-slider" min="1999" max="2024" value="1999">
+                <div id="current-year">1999</div>
+            </div>
+            <span id="end-year">2024</span>
+        </div>
         <h2>Celebrating a wonderful milestone</h2>
         <p>Wishing you all the happiness in the world on your special day.</p>
         <a href="rsvp.html" class="button">RSVP Here</a>
         <a href="info.html" class="button">More Info</a>
     </div>
-
+    
     <div class="confetti-container">
         <div class="confetti" style="--i:0;"></div>
         <div class="confetti" style="--i:1;"></div>
@@ -82,6 +94,19 @@
             audio.play().catch(error => {
                 console.log("Autoplay was prevented. Triggering play on user interaction.");
                 document.body.addEventListener('click', () => audio.play());
+            });
+        });
+        // slider script for slideshow
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('year-slider');
+            const photo = document.getElementById('slideshow-photo');
+            const currentYear = document.getElementById('current-year');
+
+            slider.addEventListener('input', function() {
+                const year = slider.value;
+                currentYear.textContent = year;
+                photo.src = `Photos/${year}.JPG`;
+                photo.alt = `Photo from ${year}`;
             });
         });
     </script>
