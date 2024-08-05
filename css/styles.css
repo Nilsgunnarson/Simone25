@@ -42,7 +42,7 @@ p {
     font-size: 1.2em;
     margin: 0.5em 0;
     color: #ff4081;
-    animation: slideIn 2s ease-in-out;
+    animation: fadeIn 2s ease-in;
 }
 
 /* Container */
