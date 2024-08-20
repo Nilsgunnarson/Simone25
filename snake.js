@@ -1,7 +1,7 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-const snakeColor = "#ff69b4"; // Pink color for the snake
+const snakeColor = "#EE82EE"; // Pink color for the snake
 const snakeBorderColor = "#ff1493"; // Darker pink border
 const snakeHeadImgSrc = "Photos/simone.png"; // Replace with your image path
 const foodImages = [
@@ -10,29 +10,56 @@ const foodImages = [
     "Photos/drink3.png"
 ];
 
-const gridSize = 40; // Increased grid size for zoomed-in effect
-canvas.width = gridSize * 15; // Adjusted to fit larger grid
-canvas.height = gridSize * 15;
+const gridSize = 60; // Increased grid size for zoomed-in effect
+canvas.width = gridSize * 10; // Adjusted to fit larger grid
+canvas.height = gridSize * 10;
 
-let snake = [
-    { x: 5 * gridSize, y: 5 * gridSize }
-];
-let direction = { x: gridSize, y: 0 };
-let food = { x: Math.floor(Math.random() * canvas.width / gridSize) * gridSize, y: Math.floor(Math.random() * canvas.height / gridSize) * gridSize };
+let snake = [];
+let direction = { x: 0, y: 0 };
+let food = {};
 let foodImg = new Image();
-foodImg.src = foodImages[Math.floor(Math.random() * foodImages.length)];
-
 let snakeHeadImg = new Image();
-snakeHeadImg.src = snakeHeadImgSrc;
-
 let score = 0;
+let game;
 
 document.addEventListener("keydown", changeDirection);
 canvas.addEventListener("touchstart", handleTouchStart, false);
 canvas.addEventListener("touchmove", handleTouchMove, false);
 
-let xDown = null;
-let yDown = null;
+const startButton = document.getElementById("start-button");
+const startScreen = document.getElementById("start-screen");
+const gameOverDiv = document.getElementById("game-over");
+const finalScoreSpan = document.getElementById("final-score");
+const restartButton = document.getElementById("restart-button");
+
+startButton.addEventListener("click", startGame);
+restartButton.addEventListener("click", resetGame);
+
+function initGame() {
+    snake = [
+        { x: 5 * gridSize, y: 5 * gridSize }
+    ];
+    direction = { x: gridSize, y: 0 };
+    food = { x: Math.floor(Math.random() * canvas.width / gridSize) * gridSize, y: Math.floor(Math.random() * canvas.height / gridSize) * gridSize };
+    foodImg.src = foodImages[Math.floor(Math.random() * foodImages.length)];
+    snakeHeadImg.src = snakeHeadImgSrc;
+    score = 0;
+    document.getElementById("score").innerText = "Score: " + score;
+}
+
+function startGame() {
+    startScreen.style.display = "none";
+    canvas.style.display = "block";
+    document.getElementById("score").style.display = "block";
+
+    initGame();
+    game = setInterval(gameLoop, 130);
+}
+
+function resetGame() {
+    gameOverDiv.style.display = "none";
+    startGame();
+}
 
 function handleTouchStart(evt) {
     const firstTouch = evt.touches[0];
@@ -138,8 +165,9 @@ function moveSnake() {
 
     if (head.x < 0 || head.y < 0 || head.x >= canvas.width || head.y >= canvas.height || collision()) {
         clearInterval(game);
-        alert("Game Over! Your Score: " + score);
-        location.reload(); // Reload the game
+
+        // Display game over message with score
+        endGame(score);
     }
 }
 
@@ -158,4 +186,7 @@ function gameLoop() {
     drawSnake();
 }
 
-const game = setInterval(gameLoop, 130); // Slower speed
+function endGame(score) {
+    finalScoreSpan.textContent = score;
+    gameOverDiv.style.display = "block";
+}

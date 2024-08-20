@@ -330,4 +330,13 @@ body::before {
         font-size: 14px;
         margin: 5px;
     }
+    .arrow {
+        font-size: 2em;
+        cursor: pointer;
+        user-select: none;
+    }
+    .arrow.disabled {
+        color: #ccc;
+        cursor: not-allowed;
+    }
 }

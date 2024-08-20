@@ -1,38 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Slideshow</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/slideshow.css">
-</head>
+
 <body>
-    <div class="slideshow-container">
-        <img id="slideshow-photo" src="Photos/1999.JPG" alt="Photo from 1999">
-    </div>
+    <h1>Simones tidsmaskin</h1>
     <div class="slider-container">
+
         <span id="start-year">1999</span>
         <div class="slider-wrapper">
             <input type="range" id="year-slider" min="1999" max="2024" value="1999">
             <div id="current-year">1999</div>
         </div>
         <span id="end-year">2024</span>
-    </div>
 
+    </div>
+    <span class="arrow" id="left-arrow">&#9664;</span>
+    <span class="arrow" id="right-arrow">&#9654;</span>
+    <div class="slideshow-container">
+
+        <img id="slideshow-photo" src="Photos/1999.JPG" alt="Photo from 1999">
+    </div>
+    <a href="birthday.html" class="button">Gå tillbaka</a>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        // Slider script for slideshow
+        document.addEventListener('DOMContentLoaded', function () {
             const slider = document.getElementById('year-slider');
             const photo = document.getElementById('slideshow-photo');
             const currentYear = document.getElementById('current-year');
+            const leftArrow = document.getElementById('left-arrow');
+            const rightArrow = document.getElementById('right-arrow');
+            const minYear = parseInt(slider.min);
+            const maxYear = parseInt(slider.max);
 
-            slider.addEventListener('input', function() {
-                const year = slider.value;
+            // Update photo based on slider input
+            slider.addEventListener('input', function () {
+                const year = parseInt(slider.value);
                 currentYear.textContent = year;
                 photo.src = `Photos/${year}.JPG`;
                 photo.alt = `Photo from ${year}`;
+                updateArrows(year);
             });
+
+            // Decrease year by one when left arrow is clicked
+            leftArrow.addEventListener('click', function () {
+                let year = parseInt(slider.value);
+                if (year > minYear) {
+                    slider.value = --year;
+                    currentYear.textContent = year;
+                    photo.src = `Photos/${year}.JPG`;
+                    photo.alt = `Photo from ${year}`;
+                    updateArrows(year);
+                }
+            });
+
+            // Increase year by one when right arrow is clicked
+            rightArrow.addEventListener('click', function () {
+                let year = parseInt(slider.value);
+                if (year < maxYear) {
+                    slider.value = ++year;
+                    currentYear.textContent = year;
+                    photo.src = `Photos/${year}.JPG`;
+                    photo.alt = `Photo from ${year}`;
+                    updateArrows(year);
+                }
+            });
+
+            // Function to update arrow states (enabled/disabled)
+            function updateArrows(year) {
+                leftArrow.classList.toggle('disabled', year === minYear);
+                rightArrow.classList.toggle('disabled', year === maxYear);
+            }
+
+            // Initialize arrow states on page load
+            updateArrows(parseInt(slider.value));
         });
+
     </script>
+
 </body>
+
 </html>

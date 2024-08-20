@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy 25th Birthday!</title>
     <!-- <link rel="stylesheet" href="css/slideShow.css"> -->
     <link rel="stylesheet" href="css/styles.css">
     <style>
@@ -17,46 +16,20 @@
             pointer-events: none;
             overflow: hidden;
         }
-
-        /* Additional CSS for arrow buttons */
-        .arrow {
-            font-size: 2em;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .arrow.disabled {
-            color: #ccc;
-            cursor: not-allowed;
-        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <h1>Simone 25&#127880;</h1>
-        <a href="snake.html" class="button">Play Snake</a>
-        <a href="info.html" class="button">More Info</a>
-        <a href="info.html" class="button">Simone genom åren</a>
-        <div class="slider-container">
-
-            <span id="start-year">1999</span>
-            <div class="slider-wrapper">
-                <input type="range" id="year-slider" min="1999" max="2024" value="1999">
-                <div id="current-year">1999</div>
-            </div>
-            <span id="end-year">2024</span>
-
-        </div>
-        <span class="arrow" id="left-arrow">&#9664;</span>
-        <span class="arrow" id="right-arrow">&#9654;</span>
-        <div class="slideshow-container">
-
-            <img id="slideshow-photo" src="Photos/1999.JPG" alt="Photo from 1999">
-        </div>
+        <a href="snake.html" class="button">Spela Snake</a>
+        <a href="info.html" class="button">Mer info</a>
+        <a href="slideShow.html" class="button">Simone genom åren</a>
+   
 
         <h2>Välkomna att fira min 25års dag!</h2>
         <p>Lördag den 28 september fyller jag 25 och vill gärna fira det med er!</p>
+        <img src="Photos/birthday.png">
     </div>
 
     <div class="confetti-container">
@@ -78,59 +51,6 @@
                 console.log("Autoplay was prevented. Triggering play on user interaction.");
                 document.body.addEventListener('click', () => audio.play());
             });
-        });
-
-        // Slider script for slideshow
-        document.addEventListener('DOMContentLoaded', function () {
-            const slider = document.getElementById('year-slider');
-            const photo = document.getElementById('slideshow-photo');
-            const currentYear = document.getElementById('current-year');
-            const leftArrow = document.getElementById('left-arrow');
-            const rightArrow = document.getElementById('right-arrow');
-            const minYear = parseInt(slider.min);
-            const maxYear = parseInt(slider.max);
-
-            // Update photo based on slider input
-            slider.addEventListener('input', function () {
-                const year = parseInt(slider.value);
-                currentYear.textContent = year;
-                photo.src = `Photos/${year}.JPG`;
-                photo.alt = `Photo from ${year}`;
-                updateArrows(year);
-            });
-
-            // Decrease year by one when left arrow is clicked
-            leftArrow.addEventListener('click', function () {
-                let year = parseInt(slider.value);
-                if (year > minYear) {
-                    slider.value = --year;
-                    currentYear.textContent = year;
-                    photo.src = `Photos/${year}.JPG`;
-                    photo.alt = `Photo from ${year}`;
-                    updateArrows(year);
-                }
-            });
-
-            // Increase year by one when right arrow is clicked
-            rightArrow.addEventListener('click', function () {
-                let year = parseInt(slider.value);
-                if (year < maxYear) {
-                    slider.value = ++year;
-                    currentYear.textContent = year;
-                    photo.src = `Photos/${year}.JPG`;
-                    photo.alt = `Photo from ${year}`;
-                    updateArrows(year);
-                }
-            });
-
-            // Function to update arrow states (enabled/disabled)
-            function updateArrows(year) {
-                leftArrow.classList.toggle('disabled', year === minYear);
-                rightArrow.classList.toggle('disabled', year === maxYear);
-            }
-
-            // Initialize arrow states on page load
-            updateArrows(parseInt(slider.value));
         });
     </script>
 </body>

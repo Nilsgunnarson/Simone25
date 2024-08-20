@@ -6,14 +6,29 @@
     <title>Simone's Snake Game</title>
     <!-- Link to the CSS file -->
     <link rel="stylesheet" href="css/snake.css">
+    <link rel="stylesheet" href="css/styles.css"
 </head>
 <body>
     <h1>Simone's Slithering Snake Game!</h1>
     <div id="score">Score: 0</div>
     <div id="game-board">
         <canvas id="gameCanvas"></canvas>
+        <div id="start-screen">
+            <button id="start-button">Start Snake</button>
+        </div>
+
+        <div id="game-over">Game Over! Din poäng: <span id="final-score"></span>
+            <button id="restart-button">Restart</button>
+        </div>
     </div>
+    <a href="birthday.html" class="button">Gå tillbaka</a>
+    <br/>
+    <br/>
     <!-- Link to the JavaScript file -->
     <script src="snake.js"></script>
+    
 </body>
 </html>
+
+
+
