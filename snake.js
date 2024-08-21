@@ -37,7 +37,7 @@ restartButton.addEventListener("click", resetGame);
 
 function initGame() {
     snake = [
-        { x: 5 * gridSize, y: 5 * gridSize }
+        { x: 2 * gridSize, y: 5 * gridSize }
     ];
     direction = { x: gridSize, y: 0 };
     food = { x: Math.floor(Math.random() * canvas.width / gridSize) * gridSize, y: Math.floor(Math.random() * canvas.height / gridSize) * gridSize };
