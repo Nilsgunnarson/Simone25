@@ -339,4 +339,13 @@ body::before {
         color: #ccc;
         cursor: not-allowed;
     }
+    img {
+        width: 80%; /* Make the image take 80% of the container width */
+        max-width: 600px; /* Limit the maximum width for larger screens */
+        height: auto; /* Maintain aspect ratio */
+        margin: 20px auto; /* Center the image and add vertical margin */
+        display: block; /* Ensure the image is a block element for centering */
+        border-radius: 15px; /* Add rounded corners to match the container */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for a subtle 3D effect */
+    }
 }
