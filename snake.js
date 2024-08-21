@@ -53,7 +53,7 @@ function startGame() {
     document.getElementById("score").style.display = "block";
 
     initGame();
-    game = setInterval(gameLoop, 130);
+    game = setInterval(gameLoop, 190);
 }
 
 function resetGame() {
