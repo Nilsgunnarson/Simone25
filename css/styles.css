@@ -330,15 +330,46 @@ body::before {
         font-size: 14px;
         margin: 5px;
     }
-    .arrow {
-        font-size: 2em;
-        cursor: pointer;
-        user-select: none;
+   /* Ensure the arrow container is a flexbox */
+.arrow-container {
+    display: flex;
+    justify-content: center; /* Center the arrows horizontally */
+    align-items: center; /* Center the arrows vertically within the container */
+    gap: 10px; /* Add space between the arrows */
+}
+
+/* Style the arrow buttons */
+.button.arrow {
+    font-size: 2em; /* Size of the arrows */
+    cursor: pointer;
+    user-select: none;
+    background-color: #ff4081; /* Background color for the buttons */
+    color: white; /* Arrow color */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%; /* Round the buttons */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button.arrow:hover {
+    background-color: #ff80ab; /* Background color on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.arrow.disabled {
+    color: #ccc; /* Disabled arrow color */
+    cursor: not-allowed; /* Disabled cursor style */
+    background-color: rgba(255, 255, 255, 0.3); /* Light background for disabled state */
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .button.arrow {
+        font-size: 1.5em; /* Reduce the size of the arrows for mobile */
+        padding: 8px;
     }
-    .arrow.disabled {
-        color: #ccc;
-        cursor: not-allowed;
-    }
+}
+
     img {
         width: 80%; /* Make the image take 80% of the container width */
         max-width: 600px; /* Limit the maximum width for larger screens */

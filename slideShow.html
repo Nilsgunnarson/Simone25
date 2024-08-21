@@ -9,17 +9,18 @@
 <body>
     <h1>Simones tidsmaskin</h1>
     <div class="slider-container">
-
-        <span id="start-year">1999</span>
+        <span id="start-year" style="color: #ff4081;">1999</span>
         <div class="slider-wrapper">
             <input type="range" id="year-slider" min="1999" max="2024" value="1999">
-            <div id="current-year">1999</div>
         </div>
-        <span id="end-year">2024</span>
-
+        <span id="end-year"style="color: #ff4081;">2024</span>
     </div>
-    <span class="arrow" id="left-arrow">&#9664;</span>
-    <span class="arrow" id="right-arrow">&#9654;</span>
+    <div class="arrow-container">
+        <span class="button arrow" id="left-arrow">&#9664;</span>
+        <span id="current-year" style="color: #ff4081;"> 1999</span>
+        <span class="button arrow" id="right-arrow">&#9654;</span>
+    </div>
+    
     <div class="slideshow-container">
 
         <img id="slideshow-photo" src="Photos/1999.JPG" alt="Photo from 1999">
